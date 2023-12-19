@@ -108,7 +108,7 @@ module.exports = grammar({
     assignment_statement: ($) =>
       seq(
         alias($._variable_assignment_varlist, $.variable_list),
-        '=',
+        choice('=',"+=", "-=", "*=", "/=", "//=", "%=", "<<=", ">>=", "&=", "|=", "^="),
         alias($._variable_assignment_explist, $.expression_list)
       ),
     // varlist ::= var {',' var}
